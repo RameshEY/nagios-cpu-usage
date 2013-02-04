@@ -3,15 +3,6 @@ import sys
 import time
 from optparse import OptionParser
 
-"""
-linux-cpu-usage.py
-Checks CPU usage on Linux hosts and return levels to Nagios
-Original author: Ashok Raja R <ashokraja.linux@gmail.com>
-Dependencies: Linux 2.6.11+, Python 2.3+
-
-Usage: ./linux-cpu-usage.py -C pu -w 25 -c 75
-"""
-
 ###  Global Identifiers  ###
 cpu_stat_var_array = ('user', 'nice', 'system', 'idle', 'iowait', 'irq', 'softirq', 'steal_time') 
 
