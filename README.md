@@ -2,7 +2,34 @@ nagios-cpu-usage
 ================
 Nagios plugin to collect CPU metrics per core.
 
-Usage: check_cpu_percentage.py [options]
+Installation
+------------
+1. Copy to /usr/lib/nagios/plugins/check_linux_cpu
+2. chmod +x check_linux_cpu
+3. Edit /etc/nagios3/conf.d/commands.cfg:
+
+    define command {
+        command_name check_linux_cpu
+        command_line /usr/lib/nagios/plugins/check_linux_cpu -C $ARG1$ -w $ARG2$ -c $ARG3$
+    }
+
+4. Edit /etc/nagios3/conf.d/services.cfg:
+
+    define service {
+        hostgroup_name <desired_hostgroup>
+        service_description linux_cpu_usage
+        check_command check_linux_cpu!cpu!25!75
+        use generic-service
+        notification_options w,u,c,r
+        notifications_enabled 1
+        contact_groups emailonly
+    }
+
+This will set up an alert for all hosts in <desired_hostgroup> which warns at 25% overall CPU usage, and triggers a critical alert at 75% overall CPU usage.
+
+Usage
+-----
+check_cpu_percentage.py [options]
 
 Options:
   --version         Show version number and exit
