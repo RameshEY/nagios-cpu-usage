@@ -8,10 +8,12 @@ Installation
 ```
     mv linux-cpu-usage.py /usr/lib/nagios/plugins/check_linux_cpu
 ```
+
 2. Add execute permissions to the script:
 ```
     chmod +x /usr/lib/nagios/plugins/check_linux_cpu
 ```
+
 3. Edit /etc/nagios3/conf.d/commands.cfg:
 ```
     define command {
