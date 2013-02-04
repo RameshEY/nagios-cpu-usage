@@ -1,8 +1,8 @@
 nagios-cpu-usage
 ================
-Nagios plugin to collect CPU metrics per core.
-Original author: Ashok Raja R (ashokraja.linux@gmail.com)
-Dependencies: Linux 2.6.11+ (for cpu steal data), Python 2.3+ (for optparse)
+* Nagios plugin to collect CPU metrics per core.
+* Original author: Ashok Raja R (ashokraja.linux@gmail.com).
+* Dependencies: Linux 2.6.11+ (for cpu steal data), Python 2.3+ (for optparse).
 
 Installation
 ------------
