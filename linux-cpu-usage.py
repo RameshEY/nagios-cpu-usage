@@ -1,18 +1,16 @@
 #!/usr/bin/env python
-import sys, time
+import sys
+import time
 from optparse import OptionParser
 
-'''
-Project     :       Per CPU Percentage Check
-Version     :       0.2
-Author      :       Ashok Raja R <ashokraja.linux@gmail.com>
-Summary     :       This program is a nagios plugin that checks Per CPU Utilization in Percentage
-Dependency  :       Linux-2.6.18/nagios/Python-2.6
+"""
+linux-cpu-usage.py
+Checks CPU usage on Linux hosts and return levels to Nagios
+Original author: Ashok Raja R <ashokraja.linux@gmail.com>
+Dependencies: Linux 2.6.11+, Python 2.3+
 
-Usage :
-```````
-shell> python check_cpu_percentage.py -C cpu -w 70 -c 90
-'''
+Usage: ./linux-cpu-usage.py -C pu -w 25 -c 75
+"""
 
 ###  Global Identifiers  ###
 cpu_stat_var_array = ('user', 'nice', 'system', 'idle', 'iowait', 'irq', 'softirq', 'steal_time') 
