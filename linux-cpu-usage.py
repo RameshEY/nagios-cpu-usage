@@ -13,7 +13,7 @@ cmd_parser.add_option("-C", "--CPU", action="store", type="string", dest="cpu_na
 cmd_parser.add_option("-w", "--warning", type="int", action="store", dest="warning_per", help="Exit with WARNING status if higher than the PERCENT of CPU Usage", metavar="Warning Percentage")
 cmd_parser.add_option("-c", "--critical", type="int", action="store", dest="critical_per", help="Exit with CRITICAL status if higher than the PERCENT of CPU Usage", metavar="Critical Percentage")
 cmd_parser.add_option("-d", "--debug", action="store_true", dest="debug", default=False, help="enable debug")
-cmd_parset.add_option("-U", "--useronly", action="store_true", dest="user_only", default=False, help="Check only user cpu usage")
+cmd_parser.add_option("-U", "--useronly", action="store_true", dest="user_only", default=False, help="Check only user cpu usage")
 
 (cmd_options, cmd_args) = cmd_parser.parse_args()
 # Check the Command syntax
