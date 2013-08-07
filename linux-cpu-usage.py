@@ -13,6 +13,7 @@ cmd_parser.add_option("-C", "--CPU", action="store", type="string", dest="cpu_na
 cmd_parser.add_option("-w", "--warning", type="int", action="store", dest="warning_per", help="Exit with WARNING status if higher than the PERCENT of CPU Usage", metavar="Warning Percentage")
 cmd_parser.add_option("-c", "--critical", type="int", action="store", dest="critical_per", help="Exit with CRITICAL status if higher than the PERCENT of CPU Usage", metavar="Critical Percentage")
 cmd_parser.add_option("-d", "--debug", action="store_true", dest="debug", default=False, help="enable debug")
+cmd_parset.add_option("-U", "--useronly", action="store_true", dest="user_only" default=False, help="Check only user cpu usage")
 
 (cmd_options, cmd_args) = cmd_parser.parse_args()
 # Check the Command syntax
@@ -72,6 +73,9 @@ for cpu_stat_var,cpu_stat in final_stat.cpu_stat_dict.items():
     globals()['cpu_%s_usage_percent' % cpu_stat_var] = ((final_stat.cpu_stat_dict[cpu_stat_var] - initial_stat.cpu_stat_dict[cpu_stat_var])/cpu_total_stat)*100  
 
 cpu_usage_percent = cpu_user_usage_percent + cpu_nice_usage_percent + cpu_system_usage_percent + cpu_iowait_usage_percent + cpu_irq_usage_percent + cpu_softirq_usage_percent + cpu_steal_time_usage_percent
+
+if (cmd_options.user_only):
+    cpu_usage_percent = cpu_user_usage_percent
 
 # Check if CPU Usage is Critical/Warning/OK
 if cpu_usage_percent >= cmd_options.critical_per:
